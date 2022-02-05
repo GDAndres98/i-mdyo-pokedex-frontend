@@ -103,7 +103,7 @@ export default {
     },
     async getPokemonByName(name) {
       await pokedexServices
-        .getPokemonByName(name)
+        .getPokemonByName(name.toLowerCase())
         .then((response) => this.recievePokemon(response));
     },
     searchPokemon() {
