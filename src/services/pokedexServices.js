@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const POKEMON_API = 'http://localhost:8090';
+const POKEMON_API = 'https://techtest-modyo-pokedex.herokuapp.com/';
 
 class pokedexServices {
 
@@ -10,7 +10,7 @@ class pokedexServices {
      */
     async getPokemonById(id) {
         try {
-            return await axios.get(`${POKEMON_API}/pokemon/${id}`)
+            return await axios.get(`${POKEMON_API}pokemon/${id}`)
                 .then(response => {
                     response.success = true
                     return response
@@ -27,7 +27,7 @@ class pokedexServices {
      */
     async getPokemonByName(name) {
         try {
-            return await axios.get(`${POKEMON_API}/pokemon/name/${name}`)
+            return await axios.get(`${POKEMON_API}pokemon/name/${name}`)
                 .then(response => {
                     response.success = true
                     return response
@@ -44,7 +44,7 @@ class pokedexServices {
      */
     async getPokemonEvolutionsById(id) {
         try {
-            return await axios.get(`${POKEMON_API}/pokemon/${id}/evolutions`)
+            return await axios.get(`${POKEMON_API}pokemon/${id}/evolutions`)
                 .then(response => {
                     response.success = true
                     return response

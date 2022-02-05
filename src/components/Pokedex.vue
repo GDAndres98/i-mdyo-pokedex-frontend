@@ -1,6 +1,6 @@
 <template>
   <h1>WENAS</h1>
-  <input type="text" v-model="inputSearch" />
+  <input @keyup.enter="searchPokemon" type="text" v-model="inputSearch" />
   <button @click="searchPokemon()">Search</button>
   <span v-if="pokemon">
     <h2>{{ pokemon.name }}</h2>
