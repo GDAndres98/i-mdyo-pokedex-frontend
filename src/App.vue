@@ -1,26 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <Pokedex msg="Welcome to Your Vue.js App"/>
+  <Pokedex msg="Welcome to Your Vue.js App" />
 </template>
 
 <script>
-import Pokedex from './components/Pokedex.vue'
+import Pokedex from "./components/Pokedex.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Pokedex
-  }
-}
+    Pokedex,
+  },
+};
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Consolas;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+html {
+  background-color: #f7f7f9;
 }
 </style>
