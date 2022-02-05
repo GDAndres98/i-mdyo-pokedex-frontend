@@ -12,10 +12,10 @@
     </button>
   </div>
 
-  <div v-if="!pokemon && !error && !loadingPokemon">
+  <div v-if="!pokemon && !error && !loadingPokemon" class="loading_image">
     <img alt="Vue logo" src="../assets/static.png" />
   </div>
-  <div v-if="!pokemon && !error && loadingPokemon">
+  <div v-if="!pokemon && !error && loadingPokemon"  class="loading_image">
     <img alt="Vue logo" src="../assets/loading.gif" />
   </div>
 
@@ -34,7 +34,11 @@
         v-for="(ability, i) in pokemon.abilities"
         :key="i"
       >
-        <span> {{ ability.replace(/(^\w)|([-\s]\w)/g, match => match.toUpperCase()) }}</span>
+        <span>
+          {{
+            ability.replace(/(^\w)|([-\s]\w)/g, (match) => match.toUpperCase())
+          }}</span
+        >
       </div>
 
       <div class="pokedex-container__pokemon-info__abilities">
@@ -58,7 +62,10 @@
       <h3 v-if="pokemon.evolutions.length == 0">
         This pokemón doesn't have evolutions
       </h3>
-      <div v-if="pokemon.evolutions.length > 0">
+      <div
+        v-if="pokemon.evolutions.length > 0"
+        class="pokedex-container__pokemon-info"
+      >
         <div
           class="pokedex-container__pokemon-info__attributes"
           v-for="(evolution, i) in pokemon.evolutions"
@@ -147,14 +154,19 @@ export default {
 .pokedex-container__img {
   border-radius: 50%;
   display: flex;
-  height: 350px;
-  width: 350px;
+  height: 280px;
+  width: 280px;
   align-items: center;
   justify-content: center;
 }
 
+.loading_image {  
+  position: relative; 
+  width: 100vw; 
+}
+
 .pokedex-container__img > img {
-  height: 350px;
+  height: 280px;
   border-radius: 50%;
   border: solid black 5px;
 }
@@ -215,6 +227,7 @@ export default {
 
 .pokedex-container__evolutions {
   width: 90%;
+  margin-bottom: 1rem;
 }
 
 .see-evolutions {
@@ -255,5 +268,15 @@ export default {
 
 .search button:hover {
   background: #0b7dda;
+}
+
+@media only screen and (max-width: 1020px) {
+  .pokedex-container {
+    width: 100%;
+  }
+
+  .search {
+    max-width: 100%;
+  }
 }
 </style>
